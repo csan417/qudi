@@ -20,13 +20,13 @@ Copyright (c) the Qudi Developers. See the COPYRIGHT.txt file at the
 top-level directory of this distribution and at <https://github.com/Ulm-IQO/qudi/>
 """
 
-from qtpy import QtCore, QtGui
+from qtpy import QtCore, QtGui, QtWidgets
 from collections import OrderedDict
 from qtwidgets.scientific_spinbox import ScienDSpinBox, ScienSpinBox
 from enum import Enum
 
 
-class MultipleCheckboxWidget(QtGui.QWidget):
+class MultipleCheckboxWidget(QtWidgets):
     """
     """
     stateChanged = QtCore.Signal()

@@ -66,7 +66,7 @@ class ToggleSwitch(QtWidgets.QAbstractButton):
             self._track_opacity = 1
         self._text_font = QtGui.QFont()
         # self._text_font.setBold(True)
-        self._text_font.setPixelSize(1.5 * self._track_radius)
+        self._text_font.setPixelSize(int(1.5 * self._track_radius))
 
         # property value for current thumb position
         self._thumb_position = self._thumb_origin
@@ -144,10 +144,10 @@ class ToggleSwitch(QtWidgets.QAbstractButton):
         # draw track
         p.setBrush(track_brush)
         p.setOpacity(track_opacity)
-        p.drawRoundedRect(self._track_margin,
-                          self.height()/2 - self._track_radius,
-                          self.width() - 2 * self._track_margin,
-                          2 * self._track_radius,
+        p.drawRoundedRect(int(self._track_margin),
+                          int(self.height()/2 - self._track_radius),
+                          int(self.width() - 2 * self._track_margin),
+                          int(2 * self._track_radius),
                           self._track_radius,
                           self._track_radius)
         # draw text if necessary
@@ -156,18 +156,18 @@ class ToggleSwitch(QtWidgets.QAbstractButton):
             p.setPen(text_color)
             p.setOpacity(1.0)
             p.setFont(self._text_font)
-            p.drawText(self._track_margin,
-                       self.height() / 2 - self._track_radius,
-                       self.width() - 2 * self._track_margin,
-                       2 * self._track_radius,
+            p.drawText(int(self._track_margin),
+                       int(self.height() / 2 - self._track_radius),
+                       int(self.width() - 2 * self._track_margin),
+                       int(2 * self._track_radius),
                        QtCore.Qt.AlignCenter,
                        state_str)
         # draw thumb
         p.setPen(QtCore.Qt.NoPen)
         p.setBrush(thumb_brush)
         p.setOpacity(1.0)
-        p.drawEllipse(self._thumb_position - self._thumb_radius,
-                      self.height()/2 - self._thumb_radius,
+        p.drawEllipse(int(self._thumb_position - self._thumb_radius),
+                      int(self.height()/2 - self._thumb_radius),
                       2 * self._thumb_radius,
                       2 * self._thumb_radius)
 

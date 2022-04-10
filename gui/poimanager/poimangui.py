@@ -650,6 +650,9 @@ class PoiManagerGui(GUIBase):
 
     @QtCore.Slot(bool, float, float)
     def update_refocus_timer(self, is_active, period, time_until_refocus):
+        period = int(period)
+        time_until_refocus = int(time_until_refocus)
+
         if not self._mw.track_period_SpinBox.hasFocus():
             self._mw.track_period_SpinBox.blockSignals(True)
             self._mw.track_period_SpinBox.setValue(period)

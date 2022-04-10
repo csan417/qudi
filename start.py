@@ -38,7 +38,7 @@ if sys.platform == 'win32':
     try:
         from _winapi import DuplicateHandle, GetCurrentProcess, DUPLICATE_SAME_ACCESS, CREATE_NEW_PROCESS_GROUP
     except:
-        from _subprocess import DuplicateHandle, GetCurrentProcess, DUPLICATE_SAME_ACCESS, CREATE_NEW_PROCESS_GROUP
+        from subprocess import DuplicateHandle, GetCurrentProcess, DUPLICATE_SAME_ACCESS, CREATE_NEW_PROCESS_GROUP
     pid = GetCurrentProcess()
     handle = DuplicateHandle(pid, pid, pid, 0, True, DUPLICATE_SAME_ACCESS)
     myenv['QUDI_PARENT_PID'] = str(int(handle))

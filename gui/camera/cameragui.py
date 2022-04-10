@@ -187,7 +187,7 @@ class CameraGUI(GUIBase):
     def keep_former_settings(self):
         """ Keep the old settings and restores them in the gui. """
         self._sd.exposureDSpinBox.setValue(self._logic._exposure)
-        self._sd.gainSpinBox.setValue(self._logic._gain)
+        self._sd.gainSpinBox.setValue(int(self._logic._gain))
 
     def menu_settings(self):
         """ This method opens the settings menu. """

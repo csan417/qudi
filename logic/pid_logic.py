@@ -74,7 +74,7 @@ class PIDLogic(GenericLogic):
         self.enabled = False
         self.timer = QtCore.QTimer()
         self.timer.setSingleShot(True)
-        self.timer.setInterval(self.timestep * 1000)  # in ms
+        self.timer.setInterval(int(self.timestep * 1000))  # in ms
         self.timer.timeout.connect(self.loop)
 
     def on_deactivate(self):
@@ -90,7 +90,7 @@ class PIDLogic(GenericLogic):
         """ Start the data recording loop.
         """
         self.enabled = True
-        self.timer.start(self.timestep * 1000)  # in ms
+        self.timer.start(int(self.timestep * 1000))  # in ms
 
     def stopLoop(self):
         """ Stop the data recording loop.
@@ -106,7 +106,7 @@ class PIDLogic(GenericLogic):
         self.history[2, -1] = self._controller.get_setpoint()
         self.sigUpdateDisplay.emit()
         if self.enabled:
-            self.timer.start(self.timestep * 1000)  # in ms
+            self.timer.start(int(self.timestep * 1000))  # in ms
 
     def getSavingState(self):
         """ Return whether we are saving data
